@@ -47,3 +47,13 @@ def updateStudent(student : UpdateStudentModel):
             raise HTTPException(status_code=404, detail="Student details not found.")
     
     return {"message" : "Student data updated successfully", "data" : student}
+
+
+@app.delete("/delete_student/{student_id}")
+def deleteStudent(student_id : int):
+    for existing_student in students:
+        if existing_student.id == student_id: 
+            students.remove(existing_student)
+            return {"message" : "Student data removed successfully."}
+
+    raise HTTPException(status_code=404,detail="Student ID not found.")    

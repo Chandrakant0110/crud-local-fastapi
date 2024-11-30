@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from student_model import StudentModel
+from models.student_model import StudentModel
 from typing import List
 
 # Main App running the server 
